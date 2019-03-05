@@ -1,5 +1,5 @@
 #!/bin/bash
-# Website status checker. by ET (etcs.me)
+# Website status checker.
 
 WORKSPACE=/scripts/isOnline
 # list of websites. each website in new line. leave an empty line in the end.
@@ -32,11 +32,11 @@ function test {
     if [ ! -f $TEMPDIR/$filename ]; then
         while read e; do
             # using mailx command
-            echo "$p WEBSITE DOWN" | mailx -s "$1 WEBSITE DOWN ( $response )" $e
+            echo "$p WEBSITE DOWN" | mail -s "$1 WEBSITE DOWN ( $response )" $e
             # using mail command
             #mail -s "$p WEBSITE DOWN" "$EMAIL"
         done < $EMAILLISTFILE
-        echo > $TEMPDIR/$filename
+     #   echo > $TEMPDIR/$filename
     fi
   fi
 }
